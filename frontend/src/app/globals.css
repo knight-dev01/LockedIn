@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Strict Monochrome — Black & White Only */
+  --color-li-black: #000000;
+  --color-li-dark: #0A0A0A;
+  --color-li-surface: #111111;
+  --color-li-surface-2: #1A1A1A;
+  --color-li-surface-3: #222222;
+  --color-li-border: #2A2A2A;
+  --color-li-border-light: #333333;
+  --color-li-gray: #666666;
+  --color-li-gray-light: #999999;
+  --color-li-text: #E0E0E0;
+  --color-li-white: #FFFFFF;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-li-text);
+  background-color: var(--color-li-black);
+  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 40%),
+                    radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 40%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-li-black); }
+::-webkit-scrollbar-thumb { background: var(--color-li-border); border-radius: 2px; }
+
+@keyframes score-fill {
+  from { width: 0%; }
+  to { width: var(--score-width); }
+}
+.score-bar-fill { animation: score-fill 1.2s ease-out forwards; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fade-in 0.35s ease-out; }
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide-up { animation: slide-up 0.45s ease-out; }
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+}
+.badge-pulse { animation: badge-pulse 2.5s infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-li-text) 0%, var(--color-li-white) 50%, var(--color-li-text) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}

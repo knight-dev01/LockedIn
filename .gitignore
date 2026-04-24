@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment (secrets)
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Next.js
+.next/
+out/
+
+# SQLite database
+*.db
+*.db-journal
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# AI / Agent
+.gemini/
+AGENTS.md
+CLAUDE.md
+
+# Misc
+*.bat
